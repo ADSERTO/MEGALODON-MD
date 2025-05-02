@@ -37,7 +37,71 @@ const logger = MAIN_LOGGER.child({});
 logger.level = "trace";
 
 const msgRetryCounterCache = new NodeCache();
+/*
+//import fs from 'fs';
+//import path from 'path';
+import { fileURLToPath } from 'url';
+import { config } from './config.js'; // Adjust import based on your project structure
+import { File } from 'megajs'; // Assuming you're using megajs
+*/
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const sessionDir = path.join(__dirname, 'session');
+const credsPath = path.join(sessionDir, 'creds.json');
+
+// Ensure session directory exists
+if (!fs.existsSync(sessionDir)) {
+    fs.mkdirSync(sessionDir, { recursive: true });
+}
+
+async function downloadSessionData() {
+    // ✅ Check if creds.json exists already
+    if (fs.existsSync(credsPath)) {
+        console.log("✅ creds.json found, skipping session download.");
+        return true;
+    }
+
+    console.log("🔍 creds.json not found, checking SESSION_ID...");
+
+    if (!config.SESSION_ID) {
+        console.error('❌ Please add your session to SESSION_ID env !!');
+        return false;
+    }
+
+    const sessdata = config.SESSION_ID.split("MEGALODON~MD~")[1];
+
+    if (!sessdata || !sessdata.includes("#")) {
+        console.error('❌ Invalid SESSION_ID format! It must contain both file ID and decryption key.');
+        return false;
+    }
+
+    const [fileID, decryptKey] = sessdata.split("#");
+
+    try {
+        console.log("🔄 Downloading Session...");
+        const file = File.fromURL(`https://mega.nz/file/${fileID}#${decryptKey}`);
+
+        const data = await new Promise((resolve, reject) => {
+            file.download((err, data) => {
+                if (err) reject(err);
+                else resolve(data);
+            });
+        });
+
+        // Save the downloaded data to creds.json
+        fs.writeFileSync(credsPath, data);
+        console.log("✅ Session downloaded and saved.");
+        return true;
+
+    } catch (err) {
+        console.error("❌ Failed to download session:", err);
+        return false;
+    }
+}
+
+/*
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
 
@@ -84,7 +148,7 @@ async function downloadSessionData() {
         return false;
     }
 }
-
+*/
 async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
