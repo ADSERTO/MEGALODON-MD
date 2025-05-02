@@ -172,7 +172,7 @@ The developer is not responsible for any misuse or bans.
 
  <a href="https://github.com/Itxxwasi"><img src="https://github.com/Itxxwasi.png" width="250" height="250" alt="Itxx Me Wasi"/></a>
 
-<p><b>For helping in bot plugin files.</b></p>
+<p><b>THANKS TO WASI TECH.</b></p>
 
 
 
