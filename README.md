@@ -176,8 +176,8 @@ The developer is not responsible for any misuse or bans.
   <img alt="MEGALODON MD- OWNER" src="https://img.shields.io/badge/OWNER-DYBY%20TECH-FF0000?style=for-the-badge&logo=github" />
 </a>  
 
-> <a href="https://github.com/DybyTech">
-  <img alt="DybyTech - HELPER" src="https://img.shields.io/badge/HELPER-DYBY%20TECH-00FFC6?style=for-the-badge&logo=github" />
+> <a href="https://github.com/itxxwasi">
+  <img alt="DybyTech - HELPER" src="https://img.shields.io/badge/HELPER-WASI%20TECH-00FFC6?style=for-the-badge&logo=github" />
 </a>
 
 <p><b>For helping in bot plugin files.</b></p>
