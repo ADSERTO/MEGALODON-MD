@@ -143,13 +143,7 @@ PREFIX="."
 
 ---
 
- Workflows File
-
-<p align="center">
-  <a href="https://whatsapp.com/channel/0029VatK7Ab6buMGF3Dq6q0V">
-    <img src="https://img.shields.io/badge/Check-Workflows-FF004D?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Check Workflows" />
-  </a>
-</p>
+ 
 
 ---
 
@@ -177,7 +171,7 @@ The developer is not responsible for any misuse or bans.
 </a>  
 
 > <a href="https://github.com/itxxwasi">
-  <img alt="DybyTech - HELPER" src="https://img.shields.io/badge/HELPER-WASI%20TECH-00FFC6?style=for-the-badge&logo=github" />
+  <img alt="DybyTech - HELPER" src="https://img.shields.io/badge/HELPER-WASI%20TECH-FF00000?style=for-the-badge&logo=github" />
 </a>
 
 <p><b>For helping in bot plugin files.</b></p>
