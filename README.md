@@ -12,7 +12,7 @@
 ---
 
 <p align="center">
-  <img src="https://files.catbox.moe/g9i2ge.jpg" width="700"/>
+  <img src="https://files.catbox.moe/rful77.jpg" width="700"/>
 </p>
 
 ---
