@@ -166,7 +166,7 @@ async function start() {
                     const msg = await store.loadMessage(key.remoteJid, key.id);
                     return msg.message || undefined;
                 }
-                return { conversation: " cloid ai whatsapp user bot" };
+                return { conversation: " cloid Megalodon md whatsapp user bot" };
             }
         });
 
@@ -180,23 +180,20 @@ async function start() {
                 if (initialConnection) {
                     console.log(chalk.green("Connected Successfully MEGALODON-MD 🤍"));
                     Matrix.sendMessage(Matrix.user.id, { 
-                        image: { url: "https://files.catbox.moe/230q0c.jpg" }, 
+                        image: { url: "https://files.catbox.moe/xko1l6.jpg" }, 
                         caption: `╓─────────────────╖
 │WELCOME TO MEGALODON MD
 ╙─────────────────╜
-*⚡ Hello there User! 👋🏻*
-
-════════════════════
-⚡ CHANNEL : https://whatsapp.com/channel/0029VatK7Ab6buMGF3Dq6q0V
-
-═══════════════════
-*⚡ Your Prefix:* = *${prefix}*
-═══════════════════
-
-⌛ REPO : https://github.com/DybyTech/MEGALODON-MD
-
+│*⚡ Hello ${pushname}👋🏻*
+│════════════════════
+│⚡ CHANNEL : https://whatsapp.com/channel/0029VatK7Ab6buMGF3Dq6q0V
+│═══════════════════
+│*⚡ Your Prefix:* = *${prefix}*
+│═══════════════════
+│🤍 REPO : https://github.com/DybyTech/MEGALODON-MD
+│
 ╚══════════════════╝
-       ©DYBY TECH🕸 AND STEEVY TECH🕸`
+       © DYBY TECH🕸 AND STEEVY TECH🕸`
                     });
                     initialConnection = false;
                 } else {
