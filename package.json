@@ -5,12 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name  MEGALODON-MD",
+    "start": "node index.js --deep-monitoring --attach --name  MEGALODON-MD",
     "stop": "pm2 stop  MEGALODON-MD",
     "restart": "pm2 restart  MEGALODON-MD"
   },
   "keywords": ["MEGALODON-MD", "whatsapp-bot", "whatsapp md bot"],
-  "author": " DYBY TECH",
+  "author": " DYBY-TECH",
   "license": "ISC",
   "dependencies": {
     "@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro@8.5.12",
