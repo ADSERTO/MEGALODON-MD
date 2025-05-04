@@ -1,20 +1,19 @@
 {
   "name": "MEGALODON-MD",
   "version": "10.8.1",
-  "description": "MEGALODON MD BY DYBY TECH AND STEEVY TECH",
+  "description": "DYBY TECH",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js --deep-monitoring --attach --name  MEGALODON-MD",
+    "start": "pm2 start index.js --deep-monitoring --attach --name  MEGALODON-MD",
     "stop": "pm2 stop  MEGALODON-MD",
     "restart": "pm2 restart  MEGALODON-MD"
   },
-  "keywords": ["MEGALODON-MD", "whatsapp-bot", "whatsapp md bot"],
-  "author": " DYBY-TECH",
+  "keywords": ["DYBH-TECH", "whatsapp-bot", "whatsapp md bot"],
+  "author": " DYBY TECH",
   "license": "ISC",
   "dependencies": {
     "@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro@8.5.12",
-    "baileys":"https://github.com/Itxxwasi/WASI-BALIYES.git",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@google/generative-ai": "^0.9.0",
     "@hapi/boom": "^10.0.1",
