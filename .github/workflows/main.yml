@@ -1,3 +1,4 @@
+
 name: Node.js CI
 
 on:
@@ -29,7 +30,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: sudo npm install
+      run: npm install
 
     - name: Install FFmpeg
       run: sudo apt-get install -y ffmpeg
