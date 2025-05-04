@@ -55,7 +55,7 @@ Deploy Easily MEGALODON MD
 ### Get Pairing Code ( SESSION ID )
 
 
-[![𝗠𝗘𝗚𝗔𝗟𝗢𝗗𝗢𝗡-𝗠𝗗](https://img.shields.io/badge/MEGALODON%20-MD%20SESSION-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://meg-lodon-session.onrender.com/pair)
+[![𝗠𝗘𝗚𝗔𝗟𝗢𝗗𝗢𝗡-𝗠𝗗](https://img.shields.io/badge/MEGALODON%20-MD%20SESSION-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://meg-lodon-session.onrender.com/main.html)
 ---
 
  Fork This Repository
