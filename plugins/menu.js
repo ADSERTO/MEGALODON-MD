@@ -64,19 +64,19 @@ const menu = async (m, Matrix) => {
   const mode = config.MODE === 'public' ? 'public' : 'private';
   const pref = config.PREFIX;
 
-  const validCommands = ['menu', 'mega'];
+  const validCommands = ['menu'];
 
   if (validCommands.includes(cmd)) {
     const mainMenu = `
 ╭━━━〔 *🕸ᴍᴇɢᴀʟᴏᴅᴏɴ ᴍᴅ 🕸* 〕━━━┈⊷
 ┃✰╭──────────────
-┃✰│ ᴏᴡɴᴇʀ : *${ᴄᴏɴғɪɢ.ᴏᴡɴᴇʀ_ɴᴀᴍᴇ}*
-┃✰│ ᴜsᴇʀ : *${ᴍ.ᴘᴜsʜɴᴀᴍᴇ}*
+┃✰│ ᴏᴡɴᴇʀ : *${config.owner_name}*
+┃✰│ ᴜsᴇʀ : *$${m.pushname}*
 ┃✰│ ʙᴀɪʟᴇʏs : *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ*
 ┃✰│ ᴛʏᴘᴇ : *ɴᴏᴅᴇᴊs*
-┃✰│ ᴍᴏᴅᴇ : *${ᴍᴏᴅᴇ}*
-┃✰│ ᴘʟᴀᴛғᴏʀᴍ : *${ᴏs.ᴘʟᴀᴛғᴏʀᴍ()}*
-┃✰│ ᴘʀᴇғɪx : [${ᴘʀᴇғɪx}]
+┃✰│ ᴍᴏᴅᴇ : *${mode}*
+┃✰│ ᴘʟᴀᴛғᴏʀᴍ : *${os.platform()}*
+┃✰│ ᴘʀᴇғɪx : [${prefix}]
 ┃✰│ ᴠᴇʀsɪᴏɴ : *𝟷.𝟶.𝟶*
 ┃✰╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
@@ -328,9 +328,9 @@ const menu = async (m, Matrix) => {
       const fullResponse = `
 ╭━━━〔 *ᴍᴇɢᴀʟᴏᴅᴏɴ ᴍᴅ- ${ᴍᴇɴᴜᴛɪᴛʟᴇ}* 〕━━━┈⊷
 ┃★╭──────────────
-┃★│• ᴏᴡɴᴇʀ : *${ᴄᴏɴғɪɢ.ᴏᴡɴᴇʀ_ɴᴀᴍᴇ}*
-┃★│• ᴜsᴇʀ : *${ᴍ.ᴘᴜsʜɴᴀᴍᴇ}*
-┃★│• ᴘʀᴇғɪx : [${ᴘʀᴇғɪx}]
+┃★│• ᴏᴡɴᴇʀ : *${config.owner_name}*
+┃★│• ᴜsᴇʀ : *${m.pushname}*
+┃★│• ᴘʀᴇғɪx : [${prefix}]
 ┃★│• ᴠᴇʀsɪᴏɴ : *𝟷.𝟶.𝟶*
 ┃★╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
