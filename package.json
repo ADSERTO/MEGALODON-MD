@@ -3,6 +3,7 @@
   "version": "10.8.1",
   "description": "DYBY TECH",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "pm2 start index.js --deep-monitoring --attach --name  MEGALODON-MD",
     "stop": "pm2 stop  MEGALODON-MD",
