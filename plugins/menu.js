@@ -64,7 +64,7 @@ const menu = async (m, Matrix) => {
   const mode = config.MODE === 'public' ? 'public' : 'private';
   const pref = config.PREFIX;
 
-  const validCommands = ['menu'];
+  const validCommands = ['menu','menu2'];
 
   if (validCommands.includes(cmd)) {
     const mainMenu = `
@@ -81,7 +81,7 @@ const menu = async (m, Matrix) => {
 ┃✰╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
 
-> ${ᴘᴜsʜᴡɪsʜ} *${ᴍ.ᴘᴜsʜɴᴀᴍᴇ}*!
+> ${pushwish} ${m.pushName}
 
 ╭━━〔 *ᴍᴇɴᴜ ʟɪsᴛ* 〕━━┈⊷
 ┃◈╭─────────────·๏
@@ -133,7 +133,7 @@ const menu = async (m, Matrix) => {
       quoted: m
     });
     
-    await Matrix.sendMessage(m.from, { react: { text: "❄️", key: m.key } });
+    
 
     // Send audio after sending the menu
     await Matrix.sendMessage(m.from, {
