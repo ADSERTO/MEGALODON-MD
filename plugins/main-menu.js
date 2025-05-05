@@ -68,150 +68,150 @@ const menu = async (m, Matrix) => {
 
   if (validCommands.includes(cmd)) {
     const str = `
-╭━━━〔 *ᴍᴇɢᴀʟᴏᴅᴏɴ ᴍᴅ* 〕━━━┈⊷
+╭━━━〔 *${config.BOT_NAME}* 〕━━━┈⊷
 ┃✰╭──────────────
-┃✰│ ᴏᴡɴᴇʀ : *${ᴄᴏɴғɪɢ.ᴏᴡɴᴇʀ_ɴᴀᴍᴇ}*
-┃✰│ ᴜsᴇʀ : *${ᴍ.ᴘᴜsʜɴᴀᴍᴇ}*
-┃✰│ ʙᴀɪʟᴇʏs : *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ*
-┃✰│ ᴛʏᴘᴇ : *ɴᴏᴅᴇᴊs*
-┃✰│ ᴍᴏᴅᴇ : *${ᴍᴏᴅᴇ}*
-┃✰│ ᴘʟᴀᴛғᴏʀᴍ : *${ᴏs.ᴘʟᴀᴛғᴏʀᴍ()}*
-┃✰│ ᴘʀᴇғɪx : [${ᴘʀᴇғɪx}]
-┃✰│ ᴠᴇʀsɪᴏɴ : *𝟷.𝟶.𝟶*
+┃✰│ Owner : *${config.OWNER_NAME}*
+┃✰│ User : *${m.pushName}*
+┃✰│ Baileys : *Multi Device*
+┃✰│ Type : *NodeJs*
+┃✰│ Mode : *${mode}*
+┃✰│ Platform : *${os.platform()}*
+┃✰│ Prefix : [${prefix}]
+┃✰│ Version : *1.0.0*
 ┃✰╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
 
 > ${pushwish} *${m.pushName}*!
 
-╭━━〔 *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Download Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴀᴘᴋ
-┃◈┃• ғᴀᴄᴇʙᴏᴏᴋ
-┃◈┃• ᴍᴇᴅɪᴀғɪʀᴇ
-┃◈┃• ᴘɪɴᴛᴇʀᴇsᴛᴅʟ
-┃◈┃• ɢɪᴛᴄʟᴏɴᴇ
-┃◈┃• ɢᴅʀɪᴠᴇ
-┃◈┃• ɪɴsᴛᴀ
-┃◈┃• ʏᴛᴍᴘ𝟹
-┃◈┃• ʏᴛᴍᴘ𝟺
-┃◈┃• ᴘʟᴀʏ
-┃◈┃• sᴏɴɢ
-┃◈┃• ᴠɪᴅᴇᴏ
-┃◈┃• ʏᴛᴍᴘ𝟹ᴅᴏᴄ
-┃◈┃• ʏᴛᴍᴘ𝟺ᴅᴏᴄ
-┃◈┃• ᴛɪᴋᴛᴏᴋ
+┃◈┃• apk
+┃◈┃• facebook
+┃◈┃• mediafire
+┃◈┃• pinterestdl
+┃◈┃• gitclone
+┃◈┃• gdrive
+┃◈┃• insta
+┃◈┃• ytmp3
+┃◈┃• ytmp4
+┃◈┃• play
+┃◈┃• song
+┃◈┃• video
+┃◈┃• ytmp3doc
+┃◈┃• ytmp4doc
+┃◈┃• tiktok
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *ᴄᴏɴᴠᴇʀᴛᴇʀ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Converter Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴀᴛᴛᴘ
-┃◈┃• ᴀᴛᴛᴘ𝟸
-┃◈┃• ᴀᴛᴛᴘ𝟹
-┃◈┃• ᴇʙɪɴᴀʀʏ
-┃◈┃• ᴅʙɪɴᴀʀʏ
-┃◈┃• ᴇᴍᴏᴊɪᴍɪx
-┃◈┃• ᴍᴘ𝟹
+┃◈┃• attp
+┃◈┃• attp2
+┃◈┃• attp3
+┃◈┃• ebinary
+┃◈┃• dbinary
+┃◈┃• emojimix
+┃◈┃• mp3
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *ᴀɪ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *AI Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴀɪ
-┃◈┃• ʙᴜɢ
-┃◈┃• ʀᴇᴘᴏʀᴛ
-┃◈┃• ɢᴘᴛ
-┃◈┃• ᴅᴀʟʟᴇ
-┃◈┃• ʀᴇᴍɪɴɪ
-┃◈┃• ɢᴇᴍɪɴɪ
+┃◈┃• ai
+┃◈┃• bug
+┃◈┃• report
+┃◈┃• gpt
+┃◈┃• dalle
+┃◈┃• remini
+┃◈┃• gemini
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *ᴛᴏᴏʟs ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Tools Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴄᴀʟᴄᴜʟᴀᴛᴏʀ
-┃◈┃• ᴛᴇᴍᴘᴍᴀɪʟ
-┃◈┃• ᴄʜᴇᴄᴋᴍᴀɪʟ
-┃◈┃• ᴛʀᴛ
-┃◈┃• ᴛᴛs
+┃◈┃• calculator
+┃◈┃• tempmail
+┃◈┃• checkmail
+┃◈┃• trt
+┃◈┃• tts
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *ɢʀᴏᴜᴘ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Group Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ʟɪɴᴋɢᴄ
-┃◈┃• sᴇᴛᴘᴘɢᴄ
-┃◈┃• sᴇᴛɴᴀᴍᴇ
-┃◈┃• sᴇᴛᴅᴇsᴄ
-┃◈┃• ɢʀᴏᴜᴘ
-┃◈┃• ɢᴄsᴇᴛᴛɪɴɢ
-┃◈┃• ᴡᴇʟᴄᴏᴍᴇ
-┃◈┃• ᴀᴅᴅ
-┃◈┃• ᴋɪᴄᴋ
-┃◈┃• ᴋɪᴄᴋᴀʟʟ
-┃◈┃• ᴘʀᴏᴍᴏᴛᴇ
-┃◈┃• ᴘʀᴏᴍᴏᴛᴇᴀʟʟ
-┃◈┃• ᴅᴇᴍᴏᴛᴇ
-┃◈┃• ᴅᴇᴍᴏᴛᴇᴀʟʟ
-┃◈┃• ʜɪᴅᴇᴛᴀɢ
-┃◈┃• ᴛᴀɢᴀʟʟ
-┃◈┃• ᴀɴᴛɪʟɪɴᴋ
-┃◈┃• ᴀɴᴛɪᴛᴏxɪᴄ
-┃◈┃• ɢᴇᴛʙɪᴏ
+┃◈┃• linkgc
+┃◈┃• setppgc
+┃◈┃• setname
+┃◈┃• setdesc
+┃◈┃• group
+┃◈┃• gcsetting
+┃◈┃• welcome
+┃◈┃• add
+┃◈┃• kick
+┃◈┃• kickall
+┃◈┃• promote
+┃◈┃• promoteall
+┃◈┃• demote
+┃◈┃• demoteall
+┃◈┃• hidetag
+┃◈┃• tagall
+┃◈┃• antilink
+┃◈┃• antitoxic
+┃◈┃• getbio
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *sᴇᴀʀᴄʜ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Search Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴘʟᴀʏ
-┃◈┃• ʏᴛs
-┃◈┃• ɪᴍᴅʙ
-┃◈┃• ɢᴏᴏɢʟᴇ
-┃◈┃• ɢɪᴍᴀɢᴇ
-┃◈┃• ᴘɪɴᴛᴇʀᴇsᴛ
-┃◈┃• ᴡᴀʟʟᴘᴀᴘᴇʀ
-┃◈┃• ᴡɪᴋɪᴍᴇᴅɪᴀ
-┃◈┃• ʏᴛsᴇᴀʀᴄʜ
-┃◈┃• ʀɪɴɢᴛᴏɴᴇ
-┃◈┃• ʟʏʀɪᴄs
+┃◈┃• play
+┃◈┃• yts
+┃◈┃• imdb
+┃◈┃• google
+┃◈┃• gimage
+┃◈┃• pinterest
+┃◈┃• wallpaper
+┃◈┃• wikimedia
+┃◈┃• ytsearch
+┃◈┃• ringtone
+┃◈┃• lyrics
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *ᴍᴀɪɴ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Main Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴘɪɴɢ
-┃◈┃• ᴀʟɪᴠᴇ
-┃◈┃• ᴏᴡɴᴇʀ
-┃◈┃• ᴍᴇɴᴜ
-┃◈┃• ɪɴғᴏʙᴏᴛ
+┃◈┃• ping
+┃◈┃• alive
+┃◈┃• owner
+┃◈┃• menu
+┃◈┃• infobot
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *ᴏᴡɴᴇʀ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Owner Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴊᴏɪɴ
-┃◈┃• ʟᴇᴀᴠᴇ
-┃◈┃• ʙʟᴏᴄᴋ
-┃◈┃• ᴜɴʙʟᴏᴄᴋ
-┃◈┃• sᴇᴛᴘᴘʙᴏᴛ
-┃◈┃• ᴀɴᴛɪᴄᴀʟʟ
-┃◈┃• sᴇᴛsᴛᴀᴛᴜs
-┃◈┃• sᴇᴛɴᴀᴍᴇʙᴏᴛ
-┃◈┃• ᴀᴜᴛᴏᴛʏᴘɪɴɢ
-┃◈┃• ᴀʟᴡᴀʏsᴏɴʟɪɴᴇ
-┃◈┃• ᴀᴜᴛᴏʀᴇᴀᴅ
-┃◈┃• ᴀᴜᴛᴏsᴠɪᴇᴡ
+┃◈┃• join
+┃◈┃• leave
+┃◈┃• block
+┃◈┃• unblock
+┃◈┃• setppbot
+┃◈┃• anticall
+┃◈┃• setstatus
+┃◈┃• setnamebot
+┃◈┃• autotyping
+┃◈┃• alwaysonline
+┃◈┃• autoread
+┃◈┃• autosview
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-╭━━〔 *sᴛᴀʟᴋ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Stalk Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴛʀᴜᴇᴄᴀʟʟᴇʀ
-┃◈┃• ɪɴsᴛᴀsᴛᴀʟᴋ
-┃◈┃• ɢɪᴛʜᴜʙsᴛᴀʟᴋ
+┃◈┃• truecaller
+┃◈┃• instastalk
+┃◈┃• githubstalk
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
-> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴇɢᴀʟᴏᴅᴏɴ ᴍᴅ*`;
+> *POWERED BY MEGALODON MD`;
 
     // Check if MENU_IMAGE exists in config and is not empty
     let menuImage;
@@ -222,7 +222,7 @@ const menu = async (m, Matrix) => {
         menuImage = Buffer.from(response.data, 'binary');
       } catch (error) {
         console.error('Error fetching menu image from URL, falling back to local image:', error);
-        menuImage = fs.readFileSync('https://files.catbox.moe/230q0c.jpg');
+        menuImage = fs.readFileSync('https://files.catbox.moe/xko1l6.jpg');
       }
     } else {
       // Use local image if MENU_IMAGE is not configured
@@ -246,11 +246,11 @@ const menu = async (m, Matrix) => {
       quoted: m
     });
     
-    await Matrix.sendMessage(m.from, { react: { text: "💫", key: m.key } });
+    
 
     // Send audio after sending the menu
     await Matrix.sendMessage(m.from, {
-      audio: { url: 'https://files.catbox.moe/rvfjap.mp3' },
+      audio: { url: 'https://files.catbox.moe/k9lgdw.mp3' },
       mimetype: 'audio/mp4',
       ptt: true
     }, { quoted: m });
