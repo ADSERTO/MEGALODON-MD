@@ -119,8 +119,6 @@ async function start() {
                         image: { url: "https://files.catbox.moe/230q0c.jpg" }, 
                         caption: `╓─────────────────╖
 │WELCOME TO MEGALODON MD
-╙─────────────────╜
-│*⚡ Hello ${pushname}👋🏻*
 │════════════════════
 │⚡ CHANNEL : https://whatsapp.com/channel/0029VatK7Ab6buMGF3Dq6q0V
 │═══════════════════
