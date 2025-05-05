@@ -68,36 +68,33 @@ const menu = async (m, Matrix) => {
 
   if (validCommands.includes(cmd)) {
     const mainMenu = `
-╭━━━〔 *🕸ᴍᴇɢᴀʟᴏᴅᴏɴ ᴍᴅ 🕸* 〕━━━┈⊷
-┃✰╭──────────────
-┃✰│ ᴏᴡɴᴇʀ : *${config.owner_name}*
-┃✰│ ᴜsᴇʀ : *$${m.pushname}*
-┃✰│ ʙᴀɪʟᴇʏs : *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ*
-┃✰│ ᴛʏᴘᴇ : *ɴᴏᴅᴇᴊs*
-┃✰│ ᴍᴏᴅᴇ : *${mode}*
-┃✰│ ᴘʟᴀᴛғᴏʀᴍ : *${os.platform()}*
-┃✰│ ᴘʀᴇғɪx : [${prefix}]
-┃✰│ ᴠᴇʀsɪᴏɴ : *𝟷.𝟶.𝟶*
-┃✰╰──────────────
+╭━━━〔 *${config.BOT_NAME}* 〕━━━┈⊷
+┃★╭──────────────
+┃★│ Owner : *${config.BOT_NAME}*
+┃★│ Baileys : *Multi Device*
+┃★│ Type : *NodeJs*
+┃★│ Platform : *Heroku*
+┃★│ Mode : *[${config.MODE}]*
+┃★│ Prifix : *[${config.PREFIX}]*
+┃★│ Version : *v 1.0.0*
+┃★╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
-
-> ${pushwish} ${m.pushName}
-
-╭━━〔 *ᴍᴇɴᴜ ʟɪsᴛ* 〕━━┈⊷
-┃◈╭─────────────·๏
-┃◈┃• 𝟷. ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ      
-┃◈┃• 𝟸. ᴄᴏɴᴠᴇʀᴛᴇʀ ᴍᴇɴᴜ        
-┃◈┃• 𝟹. ᴀɪ ᴍᴇɴᴜ  
-┃◈┃• 𝟺. ᴛᴏᴏʟs ᴍᴇɴᴜ  
-┃◈┃• 𝟻. ɢʀᴏᴜᴘ ᴍᴇɴᴜ 
-┃◈┃• 𝟼. sᴇᴀʀᴄʜ ᴍᴇɴᴜ   
-┃◈┃• 𝟽. ᴍᴀɪɴ ᴍᴇɴᴜ
-┃◈┃• 𝟾. ᴏᴡɴᴇʀ ᴍᴇɴᴜ 
-┃◈┃• 𝟿. sᴛᴀʟᴋ ᴍᴇɴᴜ     
-┃◈┃•    ᴜᴘᴅᴀᴛᴇ
-┃◈└───────────┈⊷
-╰──────────────┈⊷
-> *ʀᴇᴘʟʏ ᴡɪᴛʜ ᴛʜᴇ ɴᴜᴍʙᴇʀ (𝟷-𝟿)*`;
+*╭━━〔 Menu List 〕━━┈⊷*
+*┃◈╭─────────────·๏*
+*┃◈┃• aimenu*
+*┃◈┃• anmiemenu*
+*┃◈┃• convertmenu*
+*┃◈┃• funmenu*
+*┃◈┃• dlmenu*
+*┃◈┃• listcmd*
+*┃◈┃• mainmenu*
+*┃◈┃• groupmenu*
+*┃◈┃• allmenu*
+*┃◈┃• ownermenu*
+*┃◈┃• othermenu* 
+*┃◈┃• repo*
+*┃◈└───────────┈⊷*
+*╰──────────────┈⊷*`;
 
     // Function to get menu image
     const getMenuImage = async () => {
@@ -107,10 +104,10 @@ const menu = async (m, Matrix) => {
           return Buffer.from(response.data, 'binary');
         } catch (error) {
           console.error('Error fetching menu image from URL, falling back to local image:', error);
-          return fs.readFileSync('https://files.catbox.moe/230q0c.jpg');
+          return fs.readFileSync('https://files.catbox.moe/xko1l6.jpg');
         }
       } else {
-        return fs.readFileSync('https://files.catbox.moe/230q0c.jpg');
+        return fs.readFileSync('https://files.catbox.moe/xko1l6.jpg');
       }
     };
 
@@ -137,7 +134,7 @@ const menu = async (m, Matrix) => {
 
     // Send audio after sending the menu
     await Matrix.sendMessage(m.from, {
-      audio: { url: 'https://files.catbox.moe/rvfjap.mp3' },
+      audio: { url: 'https://files.catbox.moe/k9lgdw.mp3' },
       mimetype: 'audio/mp4',
       ptt: true
     }, { quoted: m });
@@ -157,23 +154,28 @@ const menu = async (m, Matrix) => {
         case "1":
           menuTitle = "Download Menu";
           menuResponse = `
-╭━━〔 *ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Download Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴀᴘᴋ
-┃◈┃• ғᴀᴄᴇʙᴏᴏᴋ
-┃◈┃• ᴍᴇᴅɪᴀғɪʀᴇ
-┃◈┃• ᴘɪɴᴛᴇʀᴇsᴛᴅʟ
-┃◈┃• ɢɪᴛᴄʟᴏɴᴇ
-┃◈┃• ɢᴅʀɪᴠᴇ
-┃◈┃• ɪɴsᴛᴀ
-┃◈┃• ʏᴛᴍᴘ𝟹
-┃◈┃• ʏᴛᴍᴘ𝟺
-┃◈┃• ᴘʟᴀʏ
-┃◈┃• sᴏɴɢ
-┃◈┃• ᴠɪᴅᴇᴏ
-┃◈┃• ʏᴛᴍᴘ𝟹ᴅᴏᴄ
-┃◈┃• ʏᴛᴍᴘ𝟺ᴅᴏᴄ
-┃◈┃• ᴛɪᴋᴛᴏᴋ
+┃◈┃• facebook
+┃◈┃• mediafire
+┃◈┃• tiktok
+┃◈┃• twitter
+┃◈┃• Insta
+┃◈┃• apk
+┃◈┃• img
+┃◈┃• play
+┃◈┃• play2
+┃◈┃• audio
+┃◈┃• video
+┃◈┃• video2
+┃◈┃• ytmp3
+┃◈┃• ytmp4
+┃◈┃• song
+┃◈┃• darama
+┃◈┃• gdrive
+┃◈┃• smovie
+┃◈┃• baiscope 
+┃◈┃• ginisilia 
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷`;
           break;
@@ -181,15 +183,15 @@ const menu = async (m, Matrix) => {
         case "2":
           menuTitle = "Converter Menu";
           menuResponse = `
-╭━━〔 *ᴄᴏɴᴠᴇʀᴛᴇʀ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Convert Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴀᴛᴛᴘ
-┃◈┃• ᴀᴛᴛᴘ𝟸
-┃◈┃• ᴀᴛᴛᴘ𝟹
-┃◈┃• ᴇʙɪɴᴀʀʏ
-┃◈┃• ᴅʙɪɴᴀʀʏ
-┃◈┃• ᴇᴍᴏᴊɪᴍɪx
-┃◈┃• ᴍᴘ𝟹
+┃◈┃• sticker
+┃◈┃• sticker2
+┃◈┃• fancy
+┃◈┃• take
+┃◈┃• tomp3
+┃◈┃• tts
+┃◈┃• trt
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷`;
           break;
@@ -197,15 +199,15 @@ const menu = async (m, Matrix) => {
         case "3":
           menuTitle = "AI Menu";
           menuResponse = `
-╭━━〔 *ᴀɪ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Ai Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴀɪ
-┃◈┃• ʙᴜɢ
-┃◈┃• ʀᴇᴘᴏʀᴛ
-┃◈┃• ɢᴘᴛ
-┃◈┃• ᴅᴀʟʟᴇ
-┃◈┃• ʀᴇᴍɪɴɪ
-┃◈┃• ɢᴇᴍɪɴɪ
+┃◈┃• ai
+┃◈┃• gpt
+┃◈┃• meta
+┃◈┃• blackbox
+┃◈┃• gpt4
+┃◈┃• bing
+┃◈┃• copilot
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷`;
           break;
@@ -227,27 +229,40 @@ const menu = async (m, Matrix) => {
         case "5":
           menuTitle = "Group Menu";
           menuResponse = `
-╭━━〔 *ɢʀᴏᴜᴘ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Group Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ʟɪɴᴋɢᴄ
-┃◈┃• sᴇᴛᴘᴘɢᴄ
-┃◈┃• sᴇᴛɴᴀᴍᴇ
-┃◈┃• sᴇᴛᴅᴇsᴄ
-┃◈┃• ɢʀᴏᴜᴘ
-┃◈┃• ɢᴄsᴇᴛᴛɪɴɢ
-┃◈┃• ᴡᴇʟᴄᴏᴍᴇ
-┃◈┃• ᴀᴅᴅ
-┃◈┃• ᴋɪᴄᴋ
-┃◈┃• ᴋɪᴄᴋᴀʟʟ
-┃◈┃• ᴘʀᴏᴍᴏᴛᴇ
-┃◈┃• ᴘʀᴏᴍᴏᴛᴇᴀʟʟ
-┃◈┃• ᴅᴇᴍᴏᴛᴇ
-┃◈┃• ᴅᴇᴍᴏᴛᴇᴀʟʟ
-┃◈┃• ʜɪᴅᴇᴛᴀɢ
-┃◈┃• ᴛᴀɢᴀʟʟ
-┃◈┃• ᴀɴᴛɪʟɪɴᴋ
-┃◈┃• ᴀɴᴛɪᴛᴏxɪᴄ
-┃◈┃• ɢᴇᴛʙɪᴏ
+┃◈┃• grouplink
+┃◈┃• add
+┃◈┃• remove
+┃◈┃• kick
+┃◈┃• promote 
+┃◈┃• demote
+┃◈┃• dismiss 
+┃◈┃• revoke
+┃◈┃• setgoodbye
+┃◈┃• setwelcome
+┃◈┃• delete 
+┃◈┃• getpic
+┃◈┃• ginfo
+┃◈┃• delete 
+┃◈┃• disappear on
+┃◈┃• disappear off
+┃◈┃• disappear 7D,24H
+┃◈┃• allreq
+┃◈┃• updategname
+┃◈┃• updategdesc
+┃◈┃• joinrequests
+┃◈┃• senddm
+┃◈┃• nikal
+┃◈┃• mute
+┃◈┃• unmute
+┃◈┃• lockgc
+┃◈┃• unlockgc
+┃◈┃• invite
+┃◈┃• tag
+┃◈┃• hidetag
+┃◈┃• tagall
+┃◈┃• tagadmins
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷`;
           break;
@@ -275,13 +290,17 @@ const menu = async (m, Matrix) => {
         case "7":
           menuTitle = "Main Menu";
           menuResponse = `
-╭━━〔 *ᴍᴀɪɴ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Main Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴘɪɴɢ
-┃◈┃• ᴀʟɪᴠᴇ
-┃◈┃• ᴏᴡɴᴇʀ
-┃◈┃• ᴍᴇɴᴜ
-┃◈┃• ɪɴғᴏʙᴏᴛ
+┃◈┃• ping
+┃◈┃• alive
+┃◈┃• runtime
+┃◈┃• uptime 
+┃◈┃• repo
+┃◈┃• owner
+┃◈┃• menu
+┃◈┃• menu2
+┃◈┃• restart
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷`;
           break;
@@ -289,20 +308,25 @@ const menu = async (m, Matrix) => {
         case "8":
           menuTitle = "Owner Menu";
           menuResponse = `
-╭━━〔 *ᴏᴡɴᴇʀ ᴍᴇɴᴜ* 〕━━┈⊷
+╭━━〔 *Owner Menu* 〕━━┈⊷
 ┃◈╭─────────────·๏
-┃◈┃• ᴊᴏɪɴ
-┃◈┃• ʟᴇᴀᴠᴇ
-┃◈┃• ʙʟᴏᴄᴋ
-┃◈┃• ᴜɴʙʟᴏᴄᴋ
-┃◈┃• sᴇᴛᴘᴘʙᴏᴛ
-┃◈┃• ᴀɴᴛɪᴄᴀʟʟ
-┃◈┃• sᴇᴛsᴛᴀᴛᴜs
-┃◈┃• sᴇᴛɴᴀᴍᴇʙᴏᴛ
-┃◈┃• ᴀᴜᴛᴏᴛʏᴘɪɴɢ
-┃◈┃• ᴀʟᴡᴀʏsᴏɴʟɪɴᴇ
-┃◈┃• ᴀᴜᴛᴏʀᴇᴀᴅ
-┃◈┃• ᴀᴜᴛᴏsᴠɪᴇᴡ
+┃◈┃• owner
+┃◈┃• menu
+┃◈┃• menu2
+┃◈┃• listcmd
+┃◈┃• allmenu
+┃◈┃• repo
+┃◈┃• block
+┃◈┃• unblock
+┃◈┃• fullpp
+┃◈┃• setpp
+┃◈┃• restart
+┃◈┃• shutdown
+┃◈┃• updatecmd
+┃◈┃• alive
+┃◈┃• ping 
+┃◈┃• gjid
+┃◈┃• jid
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷`;
           break;
@@ -326,12 +350,15 @@ const menu = async (m, Matrix) => {
 
       // Format the full response with title and description
       const fullResponse = `
-╭━━━〔 *ᴍᴇɢᴀʟᴏᴅᴏɴ ᴍᴅ- ${ᴍᴇɴᴜᴛɪᴛʟᴇ}* 〕━━━┈⊷
+╭━━━〔 *${config.BOT_NAME}* 〕━━━┈⊷
 ┃★╭──────────────
-┃★│• ᴏᴡɴᴇʀ : *${config.owner_name}*
-┃★│• ᴜsᴇʀ : *${m.pushname}*
-┃★│• ᴘʀᴇғɪx : [${prefix}]
-┃★│• ᴠᴇʀsɪᴏɴ : *𝟷.𝟶.𝟶*
+┃★│ Owner : *${config.BOT_NAME}*
+┃★│ Baileys : *Multi Device*
+┃★│ Type : *NodeJs*
+┃★│ Platform : *Heroku*
+┃★│ Mode : *[${config.MODE}]*
+┃★│ Prifix : *[${config.PREFIX}]*
+┃★│ Version : *v 1.0.0*
 ┃★╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
 
