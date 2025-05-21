@@ -1,7 +1,8 @@
 FROM node:lts-buster
-RUN git clone https://github.com/DybyTech/MEGALODON-MD/root/ikJawad
-WORKDIR /root/ikJawad
-RUN npm install && npm install -g pm2 || yarn install --network-concurrency 1
+
+RUN git clone https://github.com/DybyTech/MEGALODON-MD.git /app
+WORKDIR /app
+RUN npm install && npm install -g pm2
 COPY . .
 EXPOSE 9090
 CMD ["npm", "start"]

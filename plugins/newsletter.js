@@ -61,5 +61,48 @@ cmd({
     }, { quoted: mek });
 });
 
+// 22222222 by DybyTech 
+
+cmd({
+  pattern: "idch",
+  alias: ["idchannel"],
+  desc: "Get WhatsApp Channel ID from the invite link",
+  category: "tools",
+  filename: __filename
+}, async (conn, m, store, {
+  args,
+  reply
+}) => {
+  const text = args[0];
+
+  if (!text) {
+    return reply("❌ Missing link.\n\nExample:\n.idch https://whatsapp.com/channel/abc123XYZ");
+  }
+
+  if (!text.includes("https://whatsapp.com/channel/")) {
+    return reply("❌ Invalid link. It must start with:\nhttps://whatsapp.com/channel/");
+  }
+
+  const channelCode = text.split('https://whatsapp.com/channel/')[1].trim();
+
+  try {
+    const res = await conn.newsletterMetadata("invite", channelCode);
+
+    if (!res) return reply("❌ Failed to fetch channel metadata.");
+
+    let message = `
+✅ *Channel ID Retrieved:*
+*ID:* ${res.id}
+*Name:* ${res.name || 'Unknown'}
+*Owner:* ${res.owner || 'Unavailable'}
+*Subscribers:* ${res.subscriber_count || 'Unknown'}
+`.trim();
+
+    return reply(message);
+  } catch (error) {
+    console.error(error);
+    return reply("❌ An error occurred while fetching channel metadata.");
+  }
+});
 
 //PLUGIN CREATED BY DYBY TECH

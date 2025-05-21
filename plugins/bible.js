@@ -1,1 +1,59 @@
-const _0x59260b=_0x2066;function _0x2066(_0x1976e9,_0x40cedd){const _0x1a378f=_0x1a37();return _0x2066=function(_0x206688,_0x15af9a){_0x206688=_0x206688-0x151;let _0x153cbd=_0x1a378f[_0x206688];return _0x153cbd;},_0x2066(_0x1976e9,_0x40cedd);}function _0x1a37(){const _0x2a165a=['error','verse','data','*\x20(Full\x20Chapter)\x0a\x0a\x20','4239508czZKGm','bibleverse','biblia','includes','❎\x20Please\x20provide\x20a\x20reference\x20or\x20keyword.\x20Example:\x20`bible\x20John\x203:16`\x20or\x20`bible\x20John\x203`\x20for\x20a\x20chapter.','6HItwaC','287128TCgXhC','axios','52180HTALCX','?translation=kjv','trim','15179830DIXdma','get','../command','36DQTCfp','❎\x20Reference\x20not\x20found.\x20Please\x20check\x20your\x20input.','length','search','450110dWyVLn','2459658xwUafv','╭━━〔\x20📖\x20*BIBLE*\x20〕━━\x0a\x0a\x20*','╭━━〔\x20📖\x20*CHAPTER*\x20〕━━\x0a\x0a\x20*','text','Get\x20a\x20Bible\x20verse\x20or\x20chapter\x20in\x20English\x20(King\x20James\x20Version)','12ivBnlZ','reference','...\x20[See\x20full\x20chapter]\x0a\x0a╰━━━POWERED\x20BY\x20MEGALODON-MD━━━','312208qhKVAI'];_0x1a37=function(){return _0x2a165a;};return _0x1a37();}(function(_0x121a5b,_0x5cc33a){const _0x3092e8=_0x2066,_0x5df95e=_0x121a5b();while(!![]){try{const _0x2c1ee7=parseInt(_0x3092e8(0x15d))/0x1*(parseInt(_0x3092e8(0x160))/0x2)+-parseInt(_0x3092e8(0x170))/0x3*(parseInt(_0x3092e8(0x15e))/0x4)+parseInt(_0x3092e8(0x16a))/0x5+-parseInt(_0x3092e8(0x16b))/0x6+-parseInt(_0x3092e8(0x158))/0x7+-parseInt(_0x3092e8(0x153))/0x8*(parseInt(_0x3092e8(0x166))/0x9)+parseInt(_0x3092e8(0x163))/0xa;if(_0x2c1ee7===_0x5cc33a)break;else _0x5df95e['push'](_0x5df95e['shift']());}catch(_0x2c3a89){_0x5df95e['push'](_0x5df95e['shift']());}}}(_0x1a37,0x4aa3e));const {cmd}=require(_0x59260b(0x165)),axios=require(_0x59260b(0x15f));cmd({'pattern':'bible','alias':[_0x59260b(0x155),_0x59260b(0x159),_0x59260b(0x15a),'chapter',_0x59260b(0x169)],'desc':_0x59260b(0x16f),'category':_0x59260b(0x169),'filename':__filename},async(_0x4dbefa,_0x196e2e,_0x37f8a6,{args:_0x5e75eb,reply:_0x4cf0bd})=>{const _0x56cefa=_0x59260b;try{if(_0x5e75eb[_0x56cefa(0x168)]===0x0)return _0x4cf0bd(_0x56cefa(0x15c));const _0x47f12f=_0x5e75eb['join']('\x20');let _0x486e45='';_0x47f12f[_0x56cefa(0x15b)](':')?_0x486e45='https://bible-api.com/'+encodeURIComponent(_0x47f12f)+'?translation=kjv':_0x486e45='https://bible-api.com/'+encodeURIComponent(_0x47f12f)+_0x56cefa(0x161);const _0x6730ff=await axios[_0x56cefa(0x164)](_0x486e45);if(!_0x6730ff[_0x56cefa(0x156)]||!_0x6730ff[_0x56cefa(0x156)][_0x56cefa(0x16e)])return _0x4cf0bd(_0x56cefa(0x167));const _0x4b3aa2=_0x6730ff['data'][_0x56cefa(0x16e)][_0x56cefa(0x162)](),_0x4d8ed1=_0x6730ff['data'][_0x56cefa(0x151)];let _0x22ba98=_0x56cefa(0x16c)+_0x4d8ed1+'*\x0a\x0a\x20'+_0x4b3aa2+'\x0a\x0a╰━━POWERED\x20BY\x20MEGALODON-MD━━━';_0x47f12f[_0x56cefa(0x15b)](':')?_0x4cf0bd(_0x22ba98):(_0x22ba98=_0x56cefa(0x16d)+_0x4d8ed1+_0x56cefa(0x157)+_0x4b3aa2['split']('\x0a')[0x0]+_0x56cefa(0x152),_0x4cf0bd(_0x22ba98));}catch(_0xbc0d2d){console[_0x56cefa(0x154)](_0xbc0d2d),_0x4cf0bd('❎\x20An\x20error\x20occurred.\x20Please\x20try\x20again\x20later.');}});
+const { cmd } = require('../command');
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+
+cmd({
+  pattern: 'bible',
+  alias: ['verse', 'biblia', 'bibleverse', 'chapter', 'search'],
+  desc: 'Get a Bible verse or chapter in English (King James Version)',
+  category: 'biblia',
+  filename: __filename
+}, async (m, text, match, { args, reply, sendFile }) => {
+  try {
+    if (args.length === 0) {
+      return reply('❎ Please provide a reference or keyword. Example: `bible John 3:16` or `bible John 3` for a chapter.');
+    }
+
+    const query = args.join(' ');
+    const apiUrl = `https://bible-api.com/${encodeURIComponent(query)}?translation=kjv`;
+
+    const response = await axios.get(apiUrl);
+    const data = response.data;
+
+    if (!data || !data.verse || !data.text) {
+      return reply('❎ Reference not found. Please check your input.');
+    }
+
+    const reference = data.reference;
+    const verseText = data.text.trim();
+
+    const isVerse = query.includes(':');
+    const caption = isVerse
+      ? `╭━━〔 📖 *BIBLE* 〕━━\n\n*${reference}*\n\n${verseText}\n\n╰━━POWERED BY MEGALODON-MD━━━`
+      : `╭━━〔 📖 *CHAPTER* 〕━━\n\n*${reference}*\n\n${verseText}\n\n╰━━━POWERED BY MEGALODON-MD━━━`;
+
+    if (verseText.length < 4000) {
+      return reply(caption);
+    } else {
+      // Génère un fichier texte temporaire
+      const fileName = `${reference.replace(/[^a-zA-Z0-9]/g, '_')}.txt`;
+      const filePath = path.join(__dirname, '..', 'temp', fileName);
+
+      // Crée le dossier 'temp' s'il n'existe pas
+      if (!fs.existsSync(path.dirname(filePath))) {
+        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+      }
+
+      fs.writeFileSync(filePath, `${reference}\n\n${verseText}`);
+
+      await sendFile(m.chat, filePath, fileName, `📖 *${reference}* (Full Chapter)\n\nFile generated by MEGALODON-MD`);
+
+      // Supprime le fichier après l'envoi
+      fs.unlinkSync(filePath);
+    }
+  } catch (err) {
+    console.error(err);
+    reply('❎ An error occurred. Please try again later.');
+  }
+});

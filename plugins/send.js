@@ -1,31 +1,77 @@
+// plugin by DybyTech
+// do not copy my plugin
+
+const fs = require('fs');
+const path = require('path');
 const { cmd } = require('../command');
 
-const PASSWORD = "20000";
+// List of allowed owner JIDs
+const owners = ['50948702213@s.whatsapp.net']; // Replace with your own number (include @s.whatsapp.net)
+const isOwner = (sender) => owners.includes(sender);
+
+const filePath = path.join(__dirname, '../data/password.json');
+
+function setPassword(newPass) {
+    fs.writeFileSync(filePath, JSON.stringify({ send_password: newPass }, null, 2));
+}
+
+// Command: .setpassword
+cmd({
+    pattern: "setpassword",
+    desc: "Change password for .share command",
+    category: "owner",
+    filename: __filename,
+    react: "🔐",
+    owner: true
+}, async (conn, mek, m, { q, reply }) => {
+    if (!isOwner(m.sender)) return reply("⛔ This command is for *owners only*!");
+    if (!q || q.trim().length < 4) {
+        return reply("❗ Usage: .setpassword <new_password> (min 4 characters)");
+    }
+
+    try {
+        setPassword(q.trim());
+        reply(`✅ New password saved: *${q.trim()}*`);
+    } catch (e) {
+        console.error(e);
+        reply("❌ Error saving the password.");
+    }
+});
+
+// Command: .share
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 cmd({
     pattern: "share",
-    desc: "Envoyer un message texte à tous les groupes (protégé par mot de passe)",
+    desc: "Send a text message to all groups (protected by password)",
     category: "owner",
     filename: __filename,
     react: "📢",
     owner: true
 }, async (conn, mek, m, { q, reply }) => {
+    if (!isOwner(m.sender)) return reply("⛔ This command is for *owners only*!");
+    if (!q) return reply("⚠️ Usage: .share <password> <message>");
+
+    const [pass, ...msgParts] = q.trim().split(" ");
+    const message = msgParts.join(" ");
+
+    // Load password from file
+    let savedPassword = "";
+    if (fs.existsSync(filePath)) {
+        const data = JSON.parse(fs.readFileSync(filePath));
+        savedPassword = data.send_password || "";
+    }
+
+    if (pass !== savedPassword) return reply("❌ Incorrect password!");
+    if (!message) return reply("✏️ Please enter a message to send.");
+
     try {
-        if (!q) return reply("⚠️ Utilisation : .send <motdepasse> <message>");
-
-        const [pass, ...msgParts] = q.trim().split(" ");
-        const message = msgParts.join(" ");
-
-        if (pass !== PASSWORD) return reply("❌ Mot de passe incorrect !");
-        if (!message) return reply("✏️ Veuillez entrer un message à envoyer.");
-
         const groups = await conn.groupFetchAllParticipating();
         const groupIds = Object.keys(groups);
 
-        if (groupIds.length === 0) return reply("❌ Je ne suis dans aucun groupe.");
+        if (groupIds.length === 0) return reply("❌ I'm not in any group.");
 
-        await reply(`🚀 Envoi du message à ${groupIds.length} groupes...`);
+        await reply(`🚀 Sending message to ${groupIds.length} groups...`);
 
         let sent = 0;
         let failed = 0;
@@ -39,7 +85,7 @@ cmd({
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
                             newsletterJid: "120363401051937059@newsletter",
-                            newsletterName: "𝐌𝐄𝐆𝐀𝐋𝐎𝐃𝐎𝐍-𝐌𝐃",
+                            newsletterName: "MEGALODON-MD",
                             serverMessageId: 123
                         }
                     }
@@ -47,15 +93,37 @@ cmd({
                 sent++;
             } catch (err) {
                 failed++;
-                console.error(`Erreur envoi à ${jid} : ${err.message}`);
+                console.error(`Error sending to ${jid}: ${err.message}`);
             }
 
-            await delay(500); // petit délai pour éviter d'être bloqué
+            await delay(200); // short delay to avoid rate limits
         }
 
-        await reply(`✅ Envoi terminé :\n✔️ Succès : ${sent}\n❌ Échecs : ${failed}`);
+        await reply(`✅ Done:\n✔️ Success: ${sent}\n❌ Failed: ${failed}`);
     } catch (e) {
-        console.error("Erreur plugin send :", e);
-        await reply(`❌ Erreur : ${e.message}`);
+        console.error("Error in share command:", e);
+        await reply(`❌ Error: ${e.message}`);
     }
 });
+
+// Command: .viewpassword
+cmd({
+    pattern: "viewpassword",
+    desc: "View current password",
+    category: "owner",
+    filename: __filename,
+    react: "🛡️",
+    owner: true
+}, async (conn, mek, m, { reply }) => {
+    if (!isOwner(m.sender)) return reply("⛔ This command is for *owners only*!");
+    try {
+        if (!fs.existsSync(filePath)) return reply("❌ No password found.");
+        const data = JSON.parse(fs.readFileSync(filePath));
+        reply(`🔐 Current password: *${data.send_password}*`);
+    } catch (e) {
+        console.error(e);
+        reply("❌ Error reading password.");
+    }
+});
+
+// *Powered by DybyTech*
