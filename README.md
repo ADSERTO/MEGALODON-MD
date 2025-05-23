@@ -129,10 +129,9 @@ AUTO_REACT=false
 PREFIX="."
 ```
 
-### ⚙️ Workflows 
+### ⚙️ .github/workflows/deploy.yml
 
 ```workflows
-
 name: Node.js CI
 
 on:
@@ -177,5 +176,5 @@ jobs:
       run: |
         ./save_state.sh
 
-     ```
+     
 
